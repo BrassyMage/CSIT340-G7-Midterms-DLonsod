@@ -1,11 +1,8 @@
 import { useState } from "react";
-import Navbar from "./components/Navbar";
+import NavBar from "./components/NavBar";
 import Profile from "./components/Profile";
-import  Bio from "./components/Bio";
-import StatCard from "./components/StatCard";
-
-
-export default App;
+import Repositories from "./components/Repositories";
+import Footer from "./components/Footer";
 
 function App() {
   const [followers, setFollowers] = useState(0);
@@ -39,24 +36,30 @@ function App() {
     setDotfilesStars(dotfilesStars + 1);
   }
 
-  function App() {
   return (
-    <>
-    <Navbar />
+    <div className="flex min-h-screen flex-col bg-[#FAF3E1] text-[#222222]">
+      <NavBar />
 
-    <Profile
-      followers={followers}
-      rate={rate}
-      handleFollow={handleFollow}
-      handleAddRate={handleAddRate}
-      handleReset={handleReset}
-    />
-    <Bio />
-    <main>
-      <StatCard />
-    </main>
-    </>
+      <Profile
+        followers={followers}
+        rate={rate}
+        handleFollow={handleFollow}
+        handleAddRate={handleAddRate}
+        handleReset={handleReset}
+      />
+
+      <Repositories
+        portfolioStars={portfolioStars}
+        todoStars={todoStars}
+        dotfilesStars={dotfilesStars}
+        handleStarPortfolio={handleStarPortfolio}
+        handleStarTodo={handleStarTodo}
+        handleStarDotfiles={handleStarDotfiles}
+      />
+
+      <Footer />
+    </div>
   );
 }
-}
+
 export default App;
