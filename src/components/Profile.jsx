@@ -1,5 +1,6 @@
 import Bio from "./Bio";
 import StatCard from "./StatCard";
+import Hire from "./Hire";
 
 function Profile({ followers, rate, handleFollow, handleAddRate, handleReset,}) {
 
@@ -7,7 +8,7 @@ function Profile({ followers, rate, handleFollow, handleAddRate, handleReset,}) 
     <div className="flex items-end justify-between bg-[#F5E7C6] px-20 py-10">
       <div>
         <Bio />
-
+        
         <div className="mt-6 flex gap-6">
           <StatCard value={followers} label="Followers" />
           <StatCard value={rate} label="PHP per hour" />
@@ -27,7 +28,9 @@ function Profile({ followers, rate, handleFollow, handleAddRate, handleReset,}) 
           className="cursor-pointer rounded-lg border-2 border-[#222222] px-8 py-3 text-xl font-bold"
           onClick={handleReset}> Reset</button>
       </div>
+       <Hire hours={1} rate={rate} handleHire={handleAddRate} handleClear={handleReset} />
     </div>
+    
   );
 }
 
