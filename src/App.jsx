@@ -2,6 +2,8 @@ import { useState } from "react";
 import Navbar from "./components/Navbar";
 import Profile from "./components/Profile";
 import  Bio from "./components/Bio";
+import StatCard from "./components/StatCard";
+
 
 export default App;
 
@@ -41,9 +43,20 @@ function App() {
   return (
     <>
     <Navbar />
-    <Profile />
+
+    <Profile
+      followers={followers}
+      rate={rate}
+      handleFollow={handleFollow}
+      handleAddRate={handleAddRate}
+      handleReset={handleReset}
+    />
     <Bio />
+    <main>
+      <StatCard />
+    </main>
     </>
   );
 }
 }
+export default App;
